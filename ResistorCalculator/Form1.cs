@@ -1,69 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ResistorCalculator
 {
     public partial class Form1 : Form
     {
-        double? firstStripeValue=null, secondStripeValue=null, thirdStripeValue=null, fourthStripeValue;
+        double? firstTwoNumbers=null, firstStripeValue = null, secondStripeValue=null, thirdStripeValue=null, fourthStripeValue;
         ElectricalResistance resistance = new ElectricalResistance();
-
-
-        //public double FirstNumbers (double? firstNumber, double? seckondNumber )
-        //{
-        //    string numbersOneTwo = string.Format("{0}{1}", firstNumber, seckondNumber);
-
-        //    if (numbersOneTwo == null)
-        //    {
-        //        lblResValue.Text = null;
-        //    }
-        //    try
-        //    {
-        //        return Convert.ToDouble(numbersOneTwo);
-
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;                
-        //    }
-
-        //}
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (firstStripeValue ==null || secondStripeValue == null)
-            {
-                lblResValue.Text = null;
-            }
-
-            double? firstTwoNumbers = Convert.ToDouble(string.Format("{0}{1}", firstStripeValue, secondStripeValue));
-            
-            double? resValue = (firstTwoNumbers * thirdStripeValue) / 1000;
-
-            lblResValue.Text = string.Format("{0}", resValue );
-
-        }
-
-
+         
 
         public Form1()
         {
             InitializeComponent();
+        }   
+       
+        
+        private void Display ()
+        {
+            try
+            {
+                firstTwoNumbers = Convert.ToDouble(string.Format("{0}{1}", firstStripeValue, secondStripeValue));
+                lblResValue.Text = String.Format("{0}", (firstTwoNumbers));
+            }
+            catch (Exception)
+            {
+
+                lblResValue.Text = "";
+            }
+
+            if (firstTwoNumbers == null && thirdStripeValue != null)
+            {
+                lblResValue.Text = string.Format("{0} kΩ", thirdStripeValue/1000);
+            }
+
+            else if (firstTwoNumbers != null && thirdStripeValue != null)
+            {
+
+                double? resValue = (firstTwoNumbers * thirdStripeValue) / 1000;
+
+                lblResValue.Text = string.Format("{0} kΩ", resValue);
+            }
+
         }
 
-       
 
         private void MakingChoice1(object sender, EventArgs e)
         {
-
             firstStripeValue = resistance.TableValue(comBox1.SelectedIndex, 0);
+            Display();
 
 
             if (comBox1.SelectedIndex > -1)
@@ -128,9 +113,12 @@ namespace ResistorCalculator
             }
         }
 
+        
+
         private void MakingChoice2(object sender, EventArgs e)
         {
             secondStripeValue = resistance.TableValue(comBox2.SelectedIndex, 1);
+            Display();
 
 
             if (comBox2.SelectedIndex > -1)
@@ -200,6 +188,7 @@ namespace ResistorCalculator
         private void MakingChoice3(object sender, EventArgs e)
         {
             thirdStripeValue = resistance.TableValue(comBox3.SelectedIndex, 2);
+            Display();
 
 
             if (comBox3.SelectedIndex > -1)
@@ -262,9 +251,8 @@ namespace ResistorCalculator
                         break;
                 }
 
-
             }
-            
+           
           
         }
 
