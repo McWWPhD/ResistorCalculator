@@ -28,35 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.components = new System.ComponentModel.Container();
+            this.comBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comBox4 = new System.Windows.Forms.ComboBox();
+            this.comBox3 = new System.Windows.Forms.ComboBox();
+            this.comBox2 = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblResValue = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblTol = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(50, 48);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(116, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.makingChoice);
+            this.comBox1.FormattingEnabled = true;
+            this.comBox1.Items.AddRange(new object[] {
+            "brak",
+            "srebrny",
+            "złoty",
+            "czarny",
+            "brązowy",
+            "czerwony",
+            "pomarańczowy",
+            "żółty",
+            "zielony",
+            "niebieski",
+            "fioletowy",
+            "szary",
+            "biały"});
+            this.comBox1.Location = new System.Drawing.Point(50, 118);
+            this.comBox1.Name = "comBox1";
+            this.comBox1.Size = new System.Drawing.Size(116, 21);
+            this.comBox1.TabIndex = 0;
+            this.comBox1.SelectedIndexChanged += new System.EventHandler(this.MakingChoice1);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comBox1);
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Controls.Add(this.comboBox4);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.comBox4);
+            this.groupBox1.Controls.Add(this.comBox3);
+            this.groupBox1.Controls.Add(this.comBox2);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.panel3);
             this.groupBox1.Controls.Add(this.panel4);
@@ -66,7 +83,6 @@
             this.groupBox1.Size = new System.Drawing.Size(687, 140);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // panel1
             // 
@@ -75,29 +91,74 @@
             this.panel1.Size = new System.Drawing.Size(116, 132);
             this.panel1.TabIndex = 4;
             // 
-            // comboBox4
+            // comBox4
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(520, 48);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(116, 21);
-            this.comboBox4.TabIndex = 3;
+            this.comBox4.FormattingEnabled = true;
+            this.comBox4.Items.AddRange(new object[] {
+            "brak",
+            "srebrny",
+            "złoty",
+            "czarny",
+            "brązowy",
+            "czerwony",
+            "pomarańczowy",
+            "żółty",
+            "zielony",
+            "niebieski",
+            "fioletowy",
+            "szary",
+            "biały"});
+            this.comBox4.Location = new System.Drawing.Point(520, 118);
+            this.comBox4.Name = "comBox4";
+            this.comBox4.Size = new System.Drawing.Size(116, 21);
+            this.comBox4.TabIndex = 3;
+            this.comBox4.SelectedIndexChanged += new System.EventHandler(this.MakingChoice4);
             // 
-            // comboBox3
+            // comBox3
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(365, 48);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(116, 21);
-            this.comboBox3.TabIndex = 2;
+            this.comBox3.FormattingEnabled = true;
+            this.comBox3.Items.AddRange(new object[] {
+            "brak",
+            "srebrny",
+            "złoty",
+            "czarny",
+            "brązowy",
+            "czerwony",
+            "pomarańczowy",
+            "żółty",
+            "zielony",
+            "niebieski",
+            "fioletowy",
+            "szary",
+            "biały"});
+            this.comBox3.Location = new System.Drawing.Point(365, 118);
+            this.comBox3.Name = "comBox3";
+            this.comBox3.Size = new System.Drawing.Size(116, 21);
+            this.comBox3.TabIndex = 2;
+            this.comBox3.SelectedIndexChanged += new System.EventHandler(this.MakingChoice3);
             // 
-            // comboBox2
+            // comBox2
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(206, 48);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(116, 21);
-            this.comboBox2.TabIndex = 1;
+            this.comBox2.FormattingEnabled = true;
+            this.comBox2.Items.AddRange(new object[] {
+            "brak",
+            "srebrny",
+            "złoty",
+            "czarny",
+            "brązowy",
+            "czerwony",
+            "pomarańczowy",
+            "żółty",
+            "zielony",
+            "niebieski",
+            "fioletowy",
+            "szary",
+            "biały"});
+            this.comBox2.Location = new System.Drawing.Point(206, 118);
+            this.comBox2.Name = "comBox2";
+            this.comBox2.Size = new System.Drawing.Size(116, 21);
+            this.comBox2.TabIndex = 1;
+            this.comBox2.SelectedIndexChanged += new System.EventHandler(this.MakingChoice2);
             // 
             // panel2
             // 
@@ -120,39 +181,63 @@
             this.panel4.Size = new System.Drawing.Size(116, 132);
             this.panel4.TabIndex = 5;
             // 
-            // panel5
+            // lblResValue
             // 
-            this.panel5.Location = new System.Drawing.Point(254, 240);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(326, 84);
-            this.panel5.TabIndex = 2;
+            this.lblResValue.AutoSize = true;
+            this.lblResValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblResValue.Location = new System.Drawing.Point(353, 286);
+            this.lblResValue.Name = "lblResValue";
+            this.lblResValue.Size = new System.Drawing.Size(100, 37);
+            this.lblResValue.TabIndex = 2;
+            this.lblResValue.Text = "label1";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblTol
+            // 
+            this.lblTol.AutoSize = true;
+            this.lblTol.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTol.Location = new System.Drawing.Point(318, 354);
+            this.lblTol.Name = "lblTol";
+            this.lblTol.Size = new System.Drawing.Size(167, 37);
+            this.lblTol.TabIndex = 3;
+            this.lblTol.Text = "Tolerancja";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 450);
-            this.Controls.Add(this.panel5);
+            this.ClientSize = new System.Drawing.Size(828, 450);
+            this.Controls.Add(this.lblTol);
+            this.Controls.Add(this.lblResValue);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comBox4;
+        private System.Windows.Forms.ComboBox comBox3;
+        private System.Windows.Forms.ComboBox comBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label lblResValue;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblTol;
     }
 }
 
